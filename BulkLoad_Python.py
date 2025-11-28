@@ -113,19 +113,6 @@ def upload_zip_file(persistent_id, zip_path):
         print(f"[upload diagnostic] status={getattr(response, 'status_code', '<no status>')} body={body}")
 
         if response.status_code in [200, 201]:
-            # Create a per-file marker so repeated runs skip this file.
-            try:
-                marker_path = Path(filepath).parent / f".uploaded_{filename}"
-                with open(marker_path, 'w', encoding='utf-8') as m:
-                    m.write(json.dumps({
-                        "filename": filename,
-                        "persistent_id": persistent_id,
-                        "uploaded_at": time.time(),
-                        "response": body,
-                    }))
-            except Exception as e:
-                print(f"⚠ Warning: could not write marker file: {e}")
-
             print(f"✓ Uploaded file: {filename}")
             return True
         else:
