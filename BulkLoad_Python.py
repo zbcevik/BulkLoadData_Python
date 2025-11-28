@@ -8,7 +8,7 @@ from pyDataverse.api import NativeApi
 # Configuration
 API_TOKEN = os.getenv("DATAVERSE_API_TOKEN")  # Read from environment variable
 BASE_URL = "https://demo.borealisdata.ca"  # Your Dataverse URL
-DATAVERSE_ALIAS = "zeynepcevik"  # The dataverse where datasets will be uploaded
+DATAVERSE_ALIAS = "root"  # The dataverse where datasets will be uploaded
 DATASETS_FOLDER = "/Destop/Datasets"  # Main folder containing all dataset folders
 
 # Initialize API
