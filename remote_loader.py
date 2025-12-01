@@ -356,7 +356,7 @@ def process_onedrive_share(share_url, onedrive_token, base_url, dataverse_alias,
 @click.option("--onedrive-token", default=None, help='Microsoft Graph Bearer token for OneDrive/SharePoint')
 @click.option("--gdrive-token", default=None, help='Google Drive OAuth2 Bearer token')
 @click.option("--timeout", default=60, help="HTTP timeout seconds for downloads")
-def main(remote_list, api_token, base_url, dataverse_alias, timeout):
+def main(remote_list, api_token, base_url, dataverse_alias, onedrive_token, gdrive_token, timeout):
     """Process remote list and upload datasets/files using BulkLoad_Python helpers."""
     if not api_token:
         raise click.ClickException("API token is required (set DATAVERSE_API_TOKEN or --api-token)")
