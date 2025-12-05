@@ -178,9 +178,9 @@ def process_dataset_folder(dataset_folder_path):
         return False
 
     # Always delete existing files attached to the dataset before uploading
-    deleted = delete_all_files_in_dataset(persistent_id)
-    if not deleted:
-        print(f"⚠ Could not delete existing files for {persistent_id}; continuing to upload")
+    #deleted = delete_all_files_in_dataset(persistent_id)
+    #if not deleted:
+    #    print(f"⚠ Could not delete existing files for {persistent_id}; continuing to upload")
 
     # Upload ZIP file if exists
     if zip_files:
