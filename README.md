@@ -1,6 +1,7 @@
 # BulkLoadData_Python
 Loading multiple datasets by using API on Dataverse
 
+In each folder, there should be one zip and a metadata json file. The zip file includes all the files/datasets that you want to upload. The metadata json file should be DDI standard json file.
 
 Run these codes on Terminal in workpace 
 
@@ -24,7 +25,7 @@ Run these codes on Terminal in workpace
 
 `python BulkLoad_Python.py --base-url "https://demo.borealisdata.ca" --dataverse-alias "yourDataverseAlias" --datasets-folder "/your/folder/path/Datasets"`
 
--To upload documents through One-drive, create a json file like in remote_list.json file which includes all urls for each dataset
+-To upload documents through One-drive, create a json file like in remote_list.json file which includes all urls for each dataset (You have to be admin in order to use this functionality)
 
 `python3 remote_loader.py \
   --remote-list "json/file/link/one/drive" \
