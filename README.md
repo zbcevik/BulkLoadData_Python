@@ -3,7 +3,7 @@ Loading multiple datasets by using API on Dataverse
 
 In each folder, there should be one zip and a metadata json file. The zip file includes all the files/datasets that you want to upload. The metadata json file should be DDI standard json file.
 
-Run these codes on Terminal in workpace 
+Run these codes on Terminal in workspace:
 
 - Create a virtual environment: 
 
