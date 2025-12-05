@@ -36,6 +36,19 @@ def create_dataset(metadata, dataverse_alias):
         else:
             dataset_json = metadata
 
+        # Dataverse will reject (HTTP 400) attempts to add files in the
+        # dataset JSON unless the caller is a superuser. Remove any file
+        # entries from the payload so we create the dataset metadata only,
+        # then upload files separately via the upload API.
+        dv_payload = dataset_json.get('datasetVersion') if isinstance(dataset_json, dict) else None
+        if isinstance(dv_payload, dict):
+            if 'files' in dv_payload:
+                dv_payload.pop('files', None)
+                print("ℹ Removed 'files' from dataset payload to avoid superuser-only API error")
+            if 'dataFiles' in dv_payload:
+                dv_payload.pop('dataFiles', None)
+                print("ℹ Removed 'dataFiles' from dataset payload to avoid superuser-only API error")
+
         response = api.create_dataset(dataverse_alias, dataset_json)
 
         if response.status_code == 201:
